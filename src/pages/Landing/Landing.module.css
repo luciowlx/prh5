@@ -1,0 +1,315 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景装饰光球 */
+.orb1 {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.12) 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+    animation: orb 12s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.orb2 {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(210, 168, 255, 0.10) 0%, transparent 70%);
+    bottom: -100px;
+    right: -100px;
+    animation: orb 15s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+.orb3 {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(63, 185, 80, 0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 60%;
+    animation: orb 10s ease-in-out infinite 3s;
+    pointer-events: none;
+}
+
+/* 顶部标签 */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(88, 166, 255, 0.1);
+    border: 1px solid rgba(88, 166, 255, 0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    color: #58a6ff;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.6s ease both;
+}
+
+/* 主标题区 */
+.hero {
+    text-align: center;
+    max-width: 700px;
+    animation: fadeInUp 0.7s ease 0.1s both;
+}
+
+.title {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    background: linear-gradient(135deg, #58a6ff 0%, #d2a8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.subtitleSub {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.ctaBtn {
+    height: 52px !important;
+    padding: 0 36px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 100px !important;
+    background: linear-gradient(135deg, #58a6ff 0%, #d2a8ff 100%) !important;
+    border: none !important;
+    box-shadow: 0 8px 30px rgba(88, 166, 255, 0.35) !important;
+    transition: all 0.3s ease !important;
+    letter-spacing: 0.5px;
+}
+
+.ctaBtn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 40px rgba(88, 166, 255, 0.5) !important;
+}
+
+.hint {
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* 统计数字行 */
+.statsRow {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 50px 0;
+    animation: fadeInUp 0.7s ease 0.2s both;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statNum {
+    display: block;
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #58a6ff, #d2a8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.statLabel {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.statDivider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* 特性卡片 */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    width: 100%;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.7s ease 0.3s both;
+}
+
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .statsRow {
+        gap: 20px;
+    }
+}
+
+.featureCard {
+    background: rgba(22, 29, 48, 0.7);
+    border: 1px solid rgba(88, 166, 255, 0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+}
+
+.featureCard:hover {
+    border-color: rgba(88, 166, 255, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featureIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.featureCard h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.featureCard p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+}
+
+/* 预览区 */
+.previewSection {
+    width: 100%;
+    max-width: 640px;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.7s ease 0.4s both;
+}
+
+.previewLabel {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.previewCard {
+    background: rgba(22, 29, 48, 0.8);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 16px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    backdrop-filter: blur(20px);
+}
+
+.previewLeft {
+    flex-shrink: 0;
+}
+
+.previewSalary {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.previewCurrency {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.previewNum {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #58a6ff, #d2a8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.previewRange {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.previewBadge {
+    display: inline-block;
+    background: rgba(63, 185, 80, 0.15);
+    border: 1px solid rgba(63, 185, 80, 0.3);
+    color: #3fb950;
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.previewRight {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.previewTag {
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* 底部 */
+.bottomCta {
+    margin-bottom: 30px;
+    animation: fadeInUp 0.7s ease 0.5s both;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.25);
+}

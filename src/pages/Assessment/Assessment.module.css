@@ -1,0 +1,432 @@
+.container {
+    min-height: 100vh;
+    padding: 0 0 80px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.bgOrb1 {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.08) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    pointer-events: none;
+}
+
+.bgOrb2 {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(210, 168, 255, 0.07) 0%, transparent 70%);
+    bottom: 100px;
+    left: -100px;
+    pointer-events: none;
+}
+
+/* 顶部导航 */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: sticky;
+    top: 0;
+    background: rgba(10, 14, 26, 0.9);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+}
+
+.backBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+    border-color: rgba(88, 166, 255, 0.4);
+    color: #58a6ff;
+}
+
+.navTitle {
+    font-size: 15px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #58a6ff, #d2a8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stepCount {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+}
+
+/* 进度条 */
+.progressBar {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.06);
+    position: relative;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #58a6ff, #d2a8ff);
+    border-radius: 0 2px 2px 0;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 步骤指示器 */
+.stepIndicator {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding: 28px 32px;
+}
+
+@media (max-width: 600px) {
+    .stepIndicator {
+        gap: 16px;
+    }
+}
+
+.stepItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+}
+
+.stepItem.active {
+    opacity: 1;
+}
+
+.stepItem.done {
+    opacity: 0.65;
+}
+
+.stepCircle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.stepItem.active .stepCircle {
+    background: rgba(88, 166, 255, 0.2);
+    border-color: #58a6ff;
+    color: #58a6ff;
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+}
+
+.stepItem.done .stepCircle {
+    background: rgba(63, 185, 80, 0.2);
+    border-color: #3fb950;
+    color: #3fb950;
+}
+
+.stepInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 500px) {
+    .stepInfo {
+        display: none;
+    }
+}
+
+.stepTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.stepItem.active .stepTitle {
+    color: #58a6ff;
+}
+
+.stepSub {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 2px;
+}
+
+/* 表单卡片 */
+.formCard {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.formHeader {
+    margin-bottom: 32px;
+}
+
+.formHeader h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 6px;
+}
+
+.formHeader p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* 表单样式 */
+.form :global(.ant-form-item-label > label) {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form :global(.ant-form-item) {
+    margin-bottom: 28px;
+}
+
+/* 2列布局 */
+.row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .row2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Radio 按钮组 */
+.radioGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.radioGroup :global(.ant-radio-button-wrapper) {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    height: 44px !important;
+    line-height: 42px !important;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.radioGroup :global(.ant-radio-button-wrapper:before) {
+    display: none !important;
+}
+
+.radioGroup :global(.ant-radio-button-wrapper-checked) {
+    background: rgba(88, 166, 255, 0.15) !important;
+    border-color: #58a6ff !important;
+    color: #58a6ff !important;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.2) !important;
+}
+
+.radioGroupMgmt {
+    display: flex;
+    gap: 12px;
+}
+
+.radioGroupMgmt :global(.ant-radio-button-wrapper) {
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    height: 48px !important;
+    line-height: 46px !important;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+}
+
+.radioGroupMgmt :global(.ant-radio-button-wrapper:before) {
+    display: none !important;
+}
+
+.radioGroupMgmt :global(.ant-radio-button-wrapper-checked) {
+    background: rgba(88, 166, 255, 0.15) !important;
+    border-color: #58a6ff !important;
+    color: #58a6ff !important;
+}
+
+.radioGroupVertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radioGroupVertical :global(.ant-radio-button-wrapper) {
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    height: 48px !important;
+    line-height: 46px !important;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+.radioGroupVertical :global(.ant-radio-button-wrapper:before) {
+    display: none !important;
+}
+
+.radioGroupVertical :global(.ant-radio-button-wrapper-checked) {
+    background: rgba(88, 166, 255, 0.15) !important;
+    border-color: #58a6ff !important;
+    color: #58a6ff !important;
+}
+
+/* 技能/工具多选区域 */
+.checkGroupSection {
+    margin-bottom: 28px;
+}
+
+.checkGroupLabel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.selectedCount {
+    font-size: 12px;
+    color: #58a6ff;
+    background: rgba(88, 166, 255, 0.1);
+    border-radius: 100px;
+    padding: 2px 10px;
+}
+
+.checkGroup {
+    margin-bottom: 16px;
+}
+
+.groupTitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.checkboxGroup :global(.ant-checkbox-wrapper) {
+    margin-bottom: 8px !important;
+    margin-right: 8px !important;
+}
+
+.checkboxGroup :global(.ant-checkbox + span) {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.checkboxGroup :global(.ant-checkbox-wrapper-checked .ant-checkbox + span) {
+    background: rgba(88, 166, 255, 0.12);
+    border-color: rgba(88, 166, 255, 0.4);
+    color: #58a6ff;
+}
+
+.checkboxGroup :global(.ant-checkbox) {
+    display: none;
+}
+
+/* 提示框 */
+.tipBox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(88, 166, 255, 0.06);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 8px;
+}
+
+.tipIcon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.tipBox p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 按钮区 */
+.btnRow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+.prevBtn {
+    height: 48px !important;
+    padding: 0 24px !important;
+    border-radius: 100px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    background: transparent !important;
+}
+
+.prevBtn:hover {
+    border-color: rgba(88, 166, 255, 0.3) !important;
+    color: #58a6ff !important;
+}
+
+.nextBtn {
+    height: 48px !important;
+    padding: 0 32px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 100px !important;
+    background: linear-gradient(135deg, #58a6ff 0%, #d2a8ff 100%) !important;
+    border: none !important;
+    box-shadow: 0 6px 24px rgba(88, 166, 255, 0.35) !important;
+    letter-spacing: 0.3px;
+}
+
+.nextBtn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 10px 32px rgba(88, 166, 255, 0.45) !important;
+}
+
+.stepContent {
+    animation: fadeInUp 0.4s ease both;
+}
