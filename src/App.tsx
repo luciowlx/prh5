@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ConfigProvider, theme } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import { AssessmentProvider } from './context/AssessmentContext';
@@ -30,13 +30,13 @@ function App() {
       }}
     >
       <AssessmentProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/assessment" element={<Assessment />} />
             <Route path="/result" element={<Result />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </AssessmentProvider>
     </ConfigProvider>
   );
