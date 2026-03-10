@@ -3,7 +3,8 @@
  * 管理用户填写的结构化信息和分析结果，跨页面数据保持一致
  */
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState } from 'react';
+import type { ReactNode } from 'react';
 import type { UserProfile } from '../mock/calculator';
 import type { SalaryResult } from '../mock/calculator';
 
